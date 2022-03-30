@@ -23,7 +23,7 @@ class MainController extends AbstractController
     #[Route('/add', name: 'app_create')]
     public function addBPM(Request $request): Response
     {
-        $form = $this->createFormBuilder([], ['attr' => ['id' => 'current-BPM-form']])
+        $form = $this->createFormBuilder([], ['attr' => ['novalidate'=>'novalidate','id' => 'current-BPM-form']])
             ->add("currentBPM", TextType::class)
             ->getForm();
         $form->handleRequest($request);
@@ -32,6 +32,8 @@ class MainController extends AbstractController
             if ($currentBPM >= 60 && $currentBPM <= 220) {
                 return $this->redirectToRoute('app_create_pitch', ['currentBPM' => $currentBPM]);
             }
+            $this->addFlash('danger','Veuillez saisir un BPM valide entre 60 et 220');
+            return $this->redirectToRoute('app_create');
         }
 
         return $this->render('main/create.html.twig', [
