@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BPM Pitcher
+{% endblock %}
+
+{% block body %}
+	<div id="add-bpm-page">
+		<h1 class="text-center text-white">ADD</h1>
+		{{form_start(form)}}
+		{{form_widget(form)}}
+		{% if app.request.get("currentBPM") %}
+			<p class="text-primary mt-2 text-center">
+				BPM:
+				{{app.request.get("currentBPM")}}
+			</p>
+		{% endif %}
+		<div class="d-flex justify-content-center">
+			<button type="submit" class="btn btn-success mt-3">Go</button>
+		</div>
+		{{form_end(form)}}
+	</div>
+{% endblock %}

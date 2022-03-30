@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BPM Pitcher
+{% endblock %}
+
+
+{% block body %}
+
+	<div id="home-page">
+		<h1 class="text-center text-white">BPM FINDER</h1>
+		{% for bpm in bpms %}
+	<pre>
+		{{ dump(bpm) }}
+	</pre>
+		{% endfor %}
+	</div>
+{% endblock %}
