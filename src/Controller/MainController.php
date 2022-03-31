@@ -17,7 +17,7 @@ class MainController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(BPMRepository $BPMRepository): Response
     {
-        $bpms = $BPMRepository->findAll();
+        $bpms = $BPMRepository->findAllCurrentBPM();
         return $this->render('main/index.html.twig', ["bpms" => $bpms]);
     }
     #[Route('/add', name: 'app_create')]
@@ -61,5 +61,14 @@ class MainController extends AbstractController
         return $this->render('main/create.html.twig', [
             "form" => $form->createView()
         ]);
+    }
+
+
+    #[Route('/bpm/{currentbpm}', name: 'app_show')]
+    public function bpmTable(Request $request): Response
+    {
+
+
+        return $this->render('main/bpm-table.html.twig');
     }
 }

@@ -73,4 +73,18 @@ class BPMRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function findAllCurrentBPM(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT b.CurrentBPM
+            FROM App\Entity\BPM b'
+        );
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }
