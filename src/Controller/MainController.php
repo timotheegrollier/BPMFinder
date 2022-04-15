@@ -65,10 +65,10 @@ class MainController extends AbstractController
 
 
     #[Route('/bpm/{currentbpm}', name: 'app_show')]
-    public function bpmTable(Request $request): Response
+    public function bpmTable(Request $request, BPMRepository $BPMRepository): Response
     {
+        $bpm = $BPMRepository->findOneBy(['CurrentBPM'=>$request->query->get('current-bpm')]);
 
-
-        return $this->render('main/bpm-table.html.twig');
+        return $this->render('main/bpm-table.html.twig',compact('bpm'));
     }
 }

@@ -21,6 +21,9 @@ require('bootstrap');
 // require('bootstrap/js/dist/popover');
 
 
+import "./table.js"
+
+
 $(".alert").fadeTo(1000, 500).slideUp(500, function () {
     $(".alert").slideUp(500);
 });
