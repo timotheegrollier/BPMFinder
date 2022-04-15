@@ -7,7 +7,7 @@
   <div id="table">
 			<table class="table table-light">
 				<thead>
-					<tr>
+					<tr id="bpm-row">
 						<th scope="col"></th>
 						<th scope="col">{{app.request.attributes.get('currentbpm') - 20}}</th>
 						<th scope="col">{{app.request.attributes.get('currentbpm') - 19}}</th>
@@ -15,7 +15,7 @@
             {% for  i in 20..1 %}
 						<th scope="col">{{app.request.attributes.get('currentbpm') - i }}</th>
             {% endfor %}
-						<th scope="col" class="table-danger">{{app.request.attributes.get('currentbpm')}}</th>
+						<th scope="col" class="table-danger" id="current-bpm">{{app.request.attributes.get('currentbpm')}}</th>
             {% for  i in 1..20 %}
 						<th scope="col">{{app.request.attributes.get('currentbpm') + i }}</th>
             {% endfor %}
@@ -230,6 +230,6 @@
 					</tr>
 				</tbody>
 		</div>
-
+<a href="#current-bpm-show" class="d-none scroll-link">GO</a>
 	</div>
 {% endblock %}

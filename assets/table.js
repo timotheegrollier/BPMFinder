@@ -1,6 +1,7 @@
 window.addEventListener('load',()=>{
-    const table = document.getElementById('table')
     if(window.location.pathname.includes('/bpm')){
-        table.scrollLeft = 1200
+        const current = document.querySelector('#bpm-row th:nth-child(30)')
+        current.id = 'current-bpm-show'
+        document.querySelector('.scroll-link').click()
     }
 })
